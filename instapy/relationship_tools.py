@@ -11,7 +11,6 @@ from .util import get_relationship_counts
 from .util import interruption_handler
 from .util import truncate_float
 from .util import progress_tracker
-from .settings import Settings
 
 from selenium.common.exceptions import NoSuchElementException
 
@@ -348,7 +347,9 @@ def get_following(
 
     user_data = {}
 
+    # FIXME: use util.py:get_query_hash to get the hash code
     graphql_endpoint = "view-source:https://www.instagram.com/graphql" "/query/"
+
     graphql_following = (
         graphql_endpoint + "?query_hash=58712303d941c6855d4e888c5f0cd22f"
     )
